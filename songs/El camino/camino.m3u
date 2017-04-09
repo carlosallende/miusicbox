@@ -1,0 +1,23 @@
+#EXTM3U
+#EXTINF:158,01-El camino.mp3
+/home/callende/work/flask/flasky/songs/camino/01-El camino.mp3
+#EXTINF:185,02-Bogota.mp3
+/home/callende/work/flask/flasky/songs/camino/02-Bogota.mp3
+#EXTINF:145,03-Adios.mp3
+/home/callende/work/flask/flasky/songs/camino/03-Adios.mp3
+#EXTINF:228,04-Por que te vas.mp3
+/home/callende/work/flask/flasky/songs/camino/04-Por que te vas.mp3
+#EXTINF:199,05-Anada para Sergio.mp3
+/home/callende/work/flask/flasky/songs/camino/05-Anada para Sergio.mp3
+#EXTINF:153,06-Los primos.mp3
+/home/callende/work/flask/flasky/songs/camino/06-Los primos.mp3
+#EXTINF:196,07-Cielos despejados.mp3
+/home/callende/work/flask/flasky/songs/camino/07-Cielos despejados.mp3
+#EXTINF:179,08-Mama.mp3
+/home/callende/work/flask/flasky/songs/camino/08-Mama.mp3
+#EXTINF:194,09-Cena para dos.mp3
+/home/callende/work/flask/flasky/songs/camino/09-Cena para dos.mp3
+#EXTINF:155,10-Silvia.mp3
+/home/callende/work/flask/flasky/songs/camino/10-Silvia.mp3
+#EXTINF:163,11-Primera luz.mp3
+/home/callende/work/flask/flasky/songs/camino/11-Primera luz.mp3

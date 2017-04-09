@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <div class="page-header">
+        <img src="static/carlos_vegueta.png" style="width:300px">
+    </div>
+</div>
+<div class="container">
+    <p>
+    Carlos writes music, mostly instrumental, that invites to reflect about life, love, and friendship. He plays the piano, and this instrument is pretty much in every one of his songs, either playing solo, or accompanying. 
+    </p>
+    <font color="purple">
+    <p>
+    Carlos escribe m&#250;sica, en su mayoria instrumental, que invita a reflexionar sobre la vida, el amor y la amistad. Toca el piano, y este instrumento est&#225; presente en casi todas sus canciones, ya sea solo o acompa&#241;ado. 
+    </p>
+    </font>
+</div>
+<div  class="container">
+    <h3> Albums </h3>
+    {% for i in range(albums|length) %}
+        <a href="/{{ albums[i] }}"><img src="{{ albums[i] }}/{{ albums[i] }}.png" style="width:200px"></a>
+    {% endfor %}
+</div>
+{% endblock %}
+
