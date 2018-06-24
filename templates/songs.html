@@ -4,7 +4,7 @@
     <div class="page-header">
         <img src="{{ album }}/{{ album }}.png" style="width:300px">
         {% for i in range(stores|length) %}
-              <a href="{{ links[i] }}"> <img src="static/{{ stores[i] }}.png" style="width:100px"> </a>
+              <a href="{{ links[i] }}"> <img src="/static/{{ stores[i] }}.png" style="width:100px"> </a>
         {% endfor %}
         <p></p>
         <p><h3><a href="/{{ album }}/Playall"> Play all </a></h3></p>
