@@ -12,6 +12,8 @@ app = application
 manager = Manager(app)
 bootstrap = Bootstrap(app)
 
+#app.config['DEBUG'] = True
+
 
 @app.route('/')
 def index():
@@ -32,7 +34,8 @@ def invited():
 
 @app.route('/<album>')
 def list_songs(album):
-    songs=[f for f in os.listdir(os.path.join(song_dir,album)) if f.endswith('mp3')]
+    songs = glob.glob(os.path.join(song_dir,album,"*mp3"))
+    songs=list(map(os.path.basename,songs))
     songs.sort(key=lambda x: -os.path.getmtime(os.path.join(song_dir,album,x)),reverse=True)
 
     #remove .mp3 from the filenames
@@ -41,7 +44,7 @@ def list_songs(album):
     stores=[]
     links=[]
     try:
-      info=open(song_dir+"/"+album+"/"+album+".info",'r')
+      info=open(os.path.join(song_dir,album,album+".info"),'r')
       while 1:
         line=info.readline().rstrip()
         if not line: break
@@ -58,7 +61,7 @@ def list_songs(album):
 @app.route('/<album>/<filename>')
 def play_song(album,filename):
     def generate():
-      with open(song_dir+"/"+album+"/"+filename,"rb") as file:
+      with open(os.path.join(song_dir,album,filename),"rb") as file:
         data=file.read(1024)
         while data:
           yield data
@@ -70,15 +73,16 @@ def play_song(album,filename):
 @app.route('/<album>/Playall')
 def playall(album):
     def generate():
-      songs=[f for f in os.listdir(os.path.join(song_dir,album)) if f.endswith('mp3')]
+      songs = glob.glob(os.path.join(song_dir,album,"*mp3"))
+      songs=list(map(os.path.basename,songs))
       songs.sort(key=lambda x: -os.path.getmtime(os.path.join(song_dir,album,x)),reverse=True)
       for i in range(len(songs)): 
-        with open(song_dir+"/"+album+"/"+songs[i],"rb") as file:
+        with open(os.path.join(song_dir,album,songs[i]),"rb") as file:
           data=file.read(1024)
           while data:
             yield data
             data=file.read(1024)
-          file.close()
+          #file.close()
 
     return Response(generate(),mimetype="audio/mp3")
 
